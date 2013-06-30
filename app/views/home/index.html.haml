@@ -1,1 +1,6 @@
-= to_br(t(".introduction")).html_safe
+.introduction
+  = to_br(t("home.introduction")).html_safe
+
+- content_for :sidebar do
+  = render "home/sidebar_profile"
+  = render "home/sidebar_menu"
