@@ -56,3 +56,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails-i18n'
+
+gem 'kaminari'
