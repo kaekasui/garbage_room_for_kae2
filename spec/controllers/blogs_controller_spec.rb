@@ -31,12 +31,23 @@ describe BlogsController do
   let(:valid_session) { {} }
 
   describe "GET index" do
+
+    it "ステータスコード200を返す" do
+      #get :index
+      expect(response.status).to eq(200)
+    end
+
     it "assigns all blogs as @blogs" do
       pending "some reason"
       blog = Blog.create! valid_attributes
       get :index, {}, valid_session
       assigns(:blogs).should eq([blog])
     end
+  end
+
+  describe "index" do
+    #get :index
+    expect(response).to render_template("index")
   end
 
   describe "GET show" do

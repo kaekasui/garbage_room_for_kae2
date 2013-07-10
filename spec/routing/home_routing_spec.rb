@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe HomeController do
+describe "TOP" do
   describe "routing" do
 
-    it "routes to #index" do
+    it "トップページが表示されること" do
       expect(get("/")).to route_to("home#index")
     end
   end
