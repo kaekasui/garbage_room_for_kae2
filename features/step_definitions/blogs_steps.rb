@@ -11,13 +11,12 @@ end
   visit blogs_path(page: page)
 end
 
-#もし(/^"ブログ詳細"ページを表示する$/) do
-#  @blog = Blog.last
-#  visit blog_path(@blog.id)
-#end
-
 もし(/^"(.*?)"ページを表示する$/) do |page_name|
   visit path_to(page_name) 
+end
+
+ならば(/^紹介文が表示される$/) do
+  page.should have_selector("div.introduction", I18n.t("home.introduction"))
 end
 
 ならば(/^ブログの記事が"(.*?)"件表示される$/) do |display_count|
@@ -42,4 +41,12 @@ end
 
 ならば(/^サイドメニューは"(.*?)"が表示される$/) do |menu|
   page.should have_selector(".sidebar-nav > h4", text: menu)
+end
+
+ならば(/^プロフィールに"(.*?)"が表示される$/) do |profile|
+  page.should have_selector(".sidebar-nav > ul.nav-list > li", text: profile)
+end
+
+ならば(/^メニュー"(.*?)"が表示される$/) do |menu|
+  page.should have_selector(".sidebar-nav > ul.nav-list > li", text: menu)
 end
