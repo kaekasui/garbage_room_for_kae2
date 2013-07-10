@@ -1,0 +1,9 @@
+%tr
+  %th
+    = image_tag @icon_image, class: "icon"
+    = link_to blog.title, blog
+  %th.post_at{:style => "font-weight:;text-align:;"}= l blog.created_at
+
+%tr
+  %td.contents1{:colspan => 2}= blog.contents1
+

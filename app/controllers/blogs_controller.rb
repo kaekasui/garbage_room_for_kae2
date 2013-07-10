@@ -1,15 +1,17 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show]
+  before_action :set_blogs_data, only: [:index, :show]
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.page(params[:page]).per(10)
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blog = Blog.find(params[:id])
   end
 
   # GET /blogs/new
@@ -65,6 +67,11 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
+    end
+
+    def set_blogs_data
+      @recent_blogs = Blog.recent_blogs
+      @recent_blog_comments = {}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
