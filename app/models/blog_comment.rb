@@ -1,6 +1,10 @@
 class BlogComment < ActiveRecord::Base
 
   belongs_to :blog
+
+  default_scope { order("created_at DESC") }
+  default_scope { where(draft: false) }
+
   before_save :set_hostname
 
   private

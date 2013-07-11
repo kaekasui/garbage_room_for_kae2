@@ -3,6 +3,8 @@
     = render partial: "exordium", locals: {blog: @blog}
     %tr
       %td{colspan: "2"}= @blog.contents2
+    %tr
+      %td.align_right{:colspan => 2}= link_to "Comments(" + @blog.blog_comments.count.to_s + ")", blog_path(id: @blog.id, anchor: "blog_comments")
 
 - content_for :sidebar do
   = render "blogs/sidebar"
