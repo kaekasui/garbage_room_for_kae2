@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      mail_form:
+        name: "名前"
+        mail: "メールアドレス"
+        content: "内容"

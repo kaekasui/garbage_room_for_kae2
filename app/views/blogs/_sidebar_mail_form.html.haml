@@ -1,0 +1,25 @@
+.well.sidebar-nav
+  %h4.sidebar_title
+    = image_tag @icon_image, class: "icon"
+    = t("side_menu.mail_form")
+
+  %a{name: "mail_form"}
+  = bootstrap_flash
+
+  - @mail_form = MailForm.new
+  = form_for :mail_form, html: {class: "form-vertical"}, url: mail_forms_path do |f|
+    .control-group
+      = f.label :name, class: "control-label"
+      .controls
+        = f.text_field :name
+    .control-group
+      = f.label :mail, class: "control-label"
+      .controls
+        = f.text_field :mail
+    .control-group
+      = f.label :content, class: "control-label"
+      .controls
+        = f.text_area :content, class: "span3", rows: "4"
+    .control-group
+      .controls
+        = f.submit class: "btn"

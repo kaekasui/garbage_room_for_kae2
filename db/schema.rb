@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711124942) do
+ActiveRecord::Schema.define(version: 20130711134453) do
 
   create_table "blog_links", force: true do |t|
     t.string   "title"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20130711124942) do
     t.text     "contents2"
     t.boolean  "draft"
     t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mail_forms", force: true do |t|
+    t.string   "name"
+    t.string   "mail"
+    t.text     "content"
+    t.string   "ip"
+    t.string   "host"
+    t.integer  "user_id"
+    t.boolean  "check"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
