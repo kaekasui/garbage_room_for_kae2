@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20130711134453) do
     t.string   "blog_category_code"
     t.text     "contents1"
     t.text     "contents2"
-    t.boolean  "draft"
+    t.boolean  "draft",              default: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
