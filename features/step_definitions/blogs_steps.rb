@@ -5,7 +5,12 @@
   blogs_count.to_i.times do |count|
     @blog = Blog.create(title: "Title" + (count + 1).to_s, contents1: "Content1")  
   end
-  @blogs = Blog.all
+end
+
+前提(/^ブログのリンクが"(.*?)"件である場合$/) do |links_count|
+  links_count.to_i.times do
+    BlogLink.create(title: "Title", author: "Author", url: "https://#")
+  end
 end
 
 もし(/^ブログ一覧ページの"(.*?)"ページ目を表示する$/) do |page|
@@ -24,6 +29,10 @@ end
   page.should have_selector(".table tr > th > a", count: display_count) 
 end
 
+ならば(/^リンクが"(.*?)"件表示される$/) do |display_count|
+  page.should have_selector(".sidebar-nav > ul.sidebar_blog_links > li", count: display_count)
+end
+
 ならば(/^ブログのタイトルが表示される$/) do
   page.should have_selector(".table tr > th > a", @blog.title)
 end
@@ -40,7 +49,7 @@ end
   page.should have_selector(".table tr > td", @blog.contents2)
 end
 
-ならば(/^サイドメニューは"(.*?)"が表示される$/) do |menu|
+ならば(/^サイドメニュー"(.*?)"が表示される$/) do |menu|
   page.should have_selector(".sidebar-nav > h4", text: menu)
 end
 

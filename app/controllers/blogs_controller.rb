@@ -71,6 +71,7 @@ class BlogsController < ApplicationController
 
     def set_blogs_data
       @recent_blogs = Blog.recent_blogs
+      @blog_links = BlogLink.all
       @recent_blog_comments = {}
     end
 
