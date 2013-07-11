@@ -1,5 +1,7 @@
 RoomForKae2::Application.routes.draw do
 
+  resources :blog_comments
+
   root 'home#index'
   resources :blogs, only: [:index, :show]
   resources :mail_forms, only: [:create]
