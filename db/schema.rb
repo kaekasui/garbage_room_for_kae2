@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711134453) do
+ActiveRecord::Schema.define(version: 20130711183812) do
+
+  create_table "blog_comments", force: true do |t|
+    t.integer  "blog_id"
+    t.string   "title"
+    t.string   "author"
+    t.text     "content"
+    t.string   "url"
+    t.string   "mail"
+    t.string   "ip"
+    t.string   "host"
+    t.string   "password"
+    t.string   "salt"
+    t.boolean  "admin",      default: false
+    t.boolean  "mixi",       default: false
+    t.boolean  "draft",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+    t.boolean  "fc2",        default: false
+  end
 
   create_table "blog_links", force: true do |t|
     t.string   "title"

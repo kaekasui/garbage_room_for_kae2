@@ -7,7 +7,7 @@ class CreateMailForms < ActiveRecord::Migration
       t.string :ip
       t.string :host
       t.integer :user_id
-      t.boolean :check
+      t.boolean :check, default: false
 
       t.timestamps
     end
