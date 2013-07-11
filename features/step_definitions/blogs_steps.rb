@@ -2,9 +2,10 @@
 # encoding: utf-8
 
 前提(/^ブログの記事が"(.*?)"件である場合$/) do |blogs_count|
-  blogs_count.to_i.times do
-    @blog = Blog.create(title: "Title", contents1: "Content1")  
+  blogs_count.to_i.times do |count|
+    @blog = Blog.create(title: "Title" + (count + 1).to_s, contents1: "Content1")  
   end
+  @blogs = Blog.all
 end
 
 もし(/^ブログ一覧ページの"(.*?)"ページ目を表示する$/) do |page|
@@ -49,4 +50,8 @@ end
 
 ならば(/^メニュー"(.*?)"が表示される$/) do |menu|
   page.should have_selector(".sidebar-nav > ul.nav-list > li", text: menu)
+end
+
+ならば(/^最近の記事が"(.*?)"件表示される$/) do |display_count|
+  page.should have_selector(".sidebar-nav > ul.sidebar_blogs > li", count: display_count)
 end

@@ -2,6 +2,6 @@
   %h4.sidebar_title
     = image_tag @icon_image, class: "icon"
     = t("side_menu.blog_comments")
-  %ul.nav.nav-list
+  %ul.nav.nav-list.sidebar_blog_comments
     - @recent_blog_comments.each do |comment|
     - end
