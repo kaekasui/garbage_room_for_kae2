@@ -1,9 +1,10 @@
 RoomForKae2::Application.routes.draw do
 
-  resources :blog_comments
-
   root 'home#index'
-  resources :blogs, only: [:index, :show]
+
+  resources :blogs, only: [:index, :show] do
+    resources :blog_comments
+  end
   resources :mail_forms, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,6 +1,14 @@
 ja:
   activerecord:
     attributes:
+      blog_comment:
+        title: "タイトル"
+        url: "URL"
+        mail: "メールアドレス"
+        author: "名前"
+        content: "内容"
+        password: "パスワード"
+        admin: "管理者のみ閲覧"
       mail_form:
         name: "名前"
         mail: "メールアドレス"
