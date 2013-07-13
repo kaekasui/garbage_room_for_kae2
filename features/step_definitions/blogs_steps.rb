@@ -7,6 +7,12 @@
   end
 end
 
+前提(/^ブログのコメントが"(.*?)"件である場合$/) do |blog_comments_count|
+  blog_comments_count.to_i.times do |count|
+    @blog_comments = BlogComment.create(author: "Author", content: "Content", ip: "172.0.0.1", blog_id: @blog.id)
+  end
+end
+
 前提(/^ブログのリンクが"(.*?)"件である場合$/) do |links_count|
   links_count.to_i.times do
     BlogLink.create(title: "Title", author: "Author", url: "https://#")
@@ -63,4 +69,8 @@ end
 
 ならば(/^最近の記事が"(.*?)"件表示される$/) do |display_count|
   page.should have_selector(".sidebar-nav > ul.sidebar_blogs > li", count: display_count)
+end
+
+ならば(/^最近のコメントが"(.*?)"件表示される$/) do |display_count|
+  page.should have_selector(".sidebar-nav > ul.sidebar_blog_comments > li", count: display_count)
 end

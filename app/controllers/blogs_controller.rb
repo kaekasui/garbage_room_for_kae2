@@ -74,7 +74,7 @@ class BlogsController < ApplicationController
     def set_blogs_data
       @recent_blogs = Blog.recent_blogs
       @blog_links = BlogLink.all
-      @recent_blog_comments = {}
+      @recent_blog_comments = BlogComment.recent_blog_comments
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
