@@ -1,7 +1,5 @@
 RoomForKae2::Application.routes.draw do
 
-  resources :users
-
   root 'home#index'
 
   resources :blogs, only: [:index, :show] do
