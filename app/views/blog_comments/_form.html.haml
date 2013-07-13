@@ -1,29 +1,36 @@
 .control-group
   = f.label :title, class: "control-label"
+  = asterisk(@blog_comment, :title)
   .controls
     = f.text_field :title
 .control-group
   = f.label :url, class: "control-label"
+  = asterisk(@blog_comment, :url)
   .controls
     = f.text_field :url
 .control-group
   = f.label :mail, class: "control-label"
+  = asterisk(@blog_comment, :mail)
   .controls
     = f.text_field :mail
 .control-group
   = f.label :author, class: "control-label"
+  = asterisk(@blog_comment, :author)
   .controls
     = f.text_field :author
 .control-group
   = f.label :content, class: "control-label"
+  = asterisk(@blog_comment, :content)
   .controls
     = f.text_area :content, class: "span4", rows: "5"
 .control-group
   = f.label :password, class: "control-label"
+  = asterisk(@blog_comment, :password)
   .controls
     = f.password_field :password
 .control-group
   = f.label :admin, class: "control-label"
+  = asterisk(@blog_comment, :admin)
   .controls
     = f.check_box :admin
     = f.submit class: "btn", data: {confirm: I18n.t("blog_comment.post_message")}
