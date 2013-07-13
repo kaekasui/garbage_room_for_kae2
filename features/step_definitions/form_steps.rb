@@ -2,11 +2,11 @@
 # encoding: utf-8
 
 もし(/^テキストエリア"(.*?)"に"(.*?)"を入力する$/) do |text_area, text|
-  fill_in text_area, with: text
+  fill_in "mail_form_content", with: text
 end
 
-ならば(/^テキストエリア"(.*?)"が表示される$/) do |content|
-  page.should have_selector(".sidebar-nav .control-label", text: content)
+ならば(/^テキストエリアが表示される$/) do
+  page.should have_selector(".sidebar-nav textarea[id=mail_form_content]")
 end
 
 ならば(/^ボタン"(.*?)"が表示される$/) do |value|
