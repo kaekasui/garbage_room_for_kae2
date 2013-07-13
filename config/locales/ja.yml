@@ -45,6 +45,10 @@ ja:
 り、ゲーム作ったり。多趣味だよ☆（ゝω・）vｷｬﾋﾟこんな自己満サイトも全部手作り。ぽへー。"
   blog_link:
     prefix: "様"
+  blog_comment:
+    admin: "管理者のみが閲覧可能なコメントです。"
+    post_message: "コメントを投稿します。"
+    url: "URL"
 
   views:
     pagination:
@@ -56,6 +60,8 @@ ja:
 
   helpers:
     submit:
+      blog_comment:
+        create: "投稿する"
       mail_form:
         submit: "送信する"
 

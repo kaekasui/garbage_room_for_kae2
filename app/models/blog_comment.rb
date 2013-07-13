@@ -7,6 +7,9 @@ class BlogComment < ActiveRecord::Base
 
   before_save :set_hostname
 
+  validates_presence_of :content
+  #validates_format_of :url, with: /^(https?)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)$/
+
   private
   def set_hostname
     self.host = hostname(self.ip)

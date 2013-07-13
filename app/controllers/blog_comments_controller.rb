@@ -21,18 +21,19 @@ class BlogCommentsController < ApplicationController
   def edit
   end
 
-  # POST /blog_comments
-  # POST /blog_comments.json
   def create
     @blog_comment = BlogComment.new(blog_comment_params)
+    @blog_comment.update_attributes(blog_id: blog_id_param, ip: request.remote_ip)
+    @blog = Blog.find(blog_id_param)
 
     respond_to do |format|
       if @blog_comment.save
-        format.html { redirect_to @blog_comment, notice: 'Blog comment was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @blog_comment }
+        #format.html { redirect_to @blog, notice: 'Blog comment was successfully created.' }
+        #format.json { render action: 'show', status: :created, location: @blog_comment }
+        format.js
       else
-        format.html { render action: 'new' }
-        format.json { render json: @blog_comment.errors, status: :unprocessable_entity }
+        #format.html { render template: "blogs/show" }
+        #format.json { render json: @blog_comment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +70,10 @@ class BlogCommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_comment_params
-      params.require(:blog_comment).permit(:blog_id, :title, :author, :content, :url, :mail, :ip, :host, :password, :salt, :admin, :mixi, :draft)
+      params.require(:blog_comment).permit(:title, :author, :content, :url, :mail, :password, :admin)
+    end
+
+    def blog_id_param
+      params.require(:blog_id)
     end
 end
