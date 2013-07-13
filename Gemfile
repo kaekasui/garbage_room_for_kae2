@@ -61,3 +61,6 @@ end
 gem 'rails-i18n'
 
 gem 'kaminari'
+
+# OmniAuth
+gem 'omniauth'
