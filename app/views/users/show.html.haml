@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Provider:
+  = @user.provider
+%p
+  %b Uid:
+  = @user.uid
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Screen name:
+  = @user.screen_name
+%p
+  %b Image:
+  = @user.image
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
