@@ -63,4 +63,10 @@ gem 'rails-i18n'
 gem 'kaminari'
 
 # OmniAuth
-gem 'omniauth'
+gem 'twitter'
+gem 'omniauth-twitter'
+
+gem 'fb_graph'
+gem 'omniauth-facebook'
+
+gem 'activerecord-session_store'
