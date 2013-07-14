@@ -33,4 +33,5 @@
   = asterisk(@blog_comment, :admin)
   .controls
     = f.check_box :admin
-    = f.submit class: "btn", data: {confirm: I18n.t("blog_comment.post_message")}
+    =# f.submit class: "btn", data: {confirm: I18n.t("blog_comment.post_message")}
+    = f.submit class: "btn", data: {:disable_with => "Sending..."}
